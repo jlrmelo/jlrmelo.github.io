@@ -2,8 +2,8 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: Dr. Alex Johnson
-  given: Alex
+  display: Dr. José Melo
+  given: José Melo
   family: Johnson
   alternate: ''  # Example: 王伟
   pronunciation: ''  # Example: Wáng Wěi
@@ -13,7 +13,7 @@ postnominals:
   - MIEEE
 status:
   icon: "☕️"
-role: Senior AI Research Scientist
+role: Senior C++ Software Developer
 bio: |
   Alex Johnson is a Senior AI Research Scientist at Meta AI. His research
   has been published in top conferences like NeurIPS and ICML, with over
@@ -21,29 +21,26 @@ bio: |
   while ensuring ethical development.
 
 affiliations:
-  - name: Meta AI
-    url: https://ai.meta.com/
+  - name: Ocean Infinity
+    url: https://oceaninfinity.com/
 
 links:
   - icon: at-symbol
-    url: mailto:alex.johnson@example.com
+    url: mailto:jose.melo@oceaninfinity.com
     label: E-mail Me
-  - icon: brands/x
-    url: https://x.com/example
   - icon: brands/github
-    url: https://github.com/example
+    url: https://github.com/jlrmelo
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/example/
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=example
+    url: https://scholar.google.pt/citations?user=iocSrWsAAAAJ
   - icon: academicons/orcid
-    url: https://orcid.org/0000-0002-1825-0097
+    url: https://orcid.org/0000-0001-5190-9730
 
 interests:
-  - Large Language Models
+  - Marine Robotics
   - Computer Vision
-  - Reinforcement Learning
-  - AI Ethics
+  - Unmanned Marine Systems
 
 education:
   - degree: PhD Computer Science
