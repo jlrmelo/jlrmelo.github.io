@@ -9,8 +9,6 @@ publication_types:
 - paper-conference
 publication: '*Proceedings of the 12th International Conference on Autonomous Robot
   Systems and Competitions*'
-tags:
-- Mobile robots;Navigation;Remotely operated vehicles;Robot kinematics;Robotics and
   automation;Sea surface;Timing;Trajectory;Underwater tracking;Underwater vehicles;acoustic
   signal detection;mobile robots;position control;remotely operated vehicles;synchronisation;tracking;underwater
   vehicles;ASV;AUV tracking;acoustic localization network;autonomous surface vehicle
