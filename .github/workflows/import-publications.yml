@@ -71,12 +71,13 @@ jobs:
           echo "✅ Publication import completed successfully"
 
           # Strip tags from generated files to prevent file-path-too-long errors
-          find content/publications -name "index.md" | xargs -I{} python3 -c "
-import sys, re
-with open('{}') as f: c = f.read()
-c = re.sub(r'\ntags:\n(- .+\n)+', '\n', c)
-with open('{}', 'w') as f: f.write(c)
-"
+          python3 << 'PYEOF'
+import re, glob
+for path in glob.glob('content/publications/*/index.md'):
+    with open(path) as f: c = f.read()
+    c = re.sub(r'\ntags:\n(- .+\n)+', '\n', c)
+    with open(path, 'w') as f: f.write(c)
+PYEOF
           echo "🏷️ Tags stripped from publication files"
 
           # Verify that files were created
