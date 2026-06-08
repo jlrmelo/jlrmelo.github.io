@@ -8,8 +8,9 @@ type: landing
 sections:
   - block: resume-biography-3
     content:
-      # Choose a user profile to display (a folder name within `content/authors/`)
-      username: me
+      # Slim profile (no education/work/interests) -> brief landing page.
+      # The full CV is rendered on the About page from the `me` profile.
+      username: profile
       text: ''
       # Show a call-to-action button under your biography? (optional)
       button:
@@ -17,8 +18,6 @@ sections:
         url: about/
       headings:
         about: ''
-        education: ''
-        interests: ''
     design:
       # Use the new Gradient Mesh which automatically adapts to the selected theme colors
       background:

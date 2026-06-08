@@ -151,3 +151,11 @@ work:
       Developing, maintaining, and upgrading client-tailored SCADA solutions.
       Commissioning solutions directly at the client's site.
 ---
+
+Senior AI Researcher at Ocean Infinity, leading R&D that applies machine
+learning to the autonomy and situational awareness of unmanned underwater
+vehicles. Over fifteen years across academia, NATO research, and industry —
+spanning navigation and localization, sensor fusion, target tracking, and
+SLAM for marine robotics. PhD in Electrical and Computer Engineering from the
+University of Porto.
+
