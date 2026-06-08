@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+\usepackage[utf8]{inputenc}
+\usepackage{fontawesome}
+\usepackage[scale=0.8]{geometry}
+\usepackage{pdfpages}
+\usepackage{lmodern,textcomp}
+\usepackage[backend=bibtex, style=numeric, giveninits=false, maxbibnames=99, maxbibnames=99, sorting=ydnt,defernumbers=true]{biblatex}
+
+%\moderncvcolor{cerulean}                           % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'; for contemporary style use 'cerulean'
+% moderncv themes
+%\moderncvstyle[]{contemporary}
+
+\AtDataInput{%
+	\csnumgdef{entrycount:\strfield{labelprefix}}{%
+		\csuse{entrycount:\strfield{labelprefix}}+1}}
+
+\DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}    
+\newrobustcmd*{\mkbibdesc}[1]{%
+	\number\numexpr\csuse{entrycount:\strfield{labelprefix}}+1-#1\relax}
+
+\addbibresource{jlm3.bib}
+%\addbibresource{jlm3_unpublished.bib}
+%\recomputelenghts
+
+\usepackage{lastpage}
+\rfoot{\addressfont\itshape\textcolor{gray}{Page \thepage\ of \pageref{LastPage}}}
+\rfoot{\addressfont\itshape\textcolor{gray}{\thepage /\pageref{LastPage}}}
+
+%Bullets for references
+\makeatletter
+\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+
+\firstname{José Luís}
+\familyname{Melo}
+\title{Curriculum Vitae}
+%\address{Office 719 SEO 851 S. Morgan St.}{Chicago, IL}
+%\extrainfo{ \faCalendar \hspace{0.1cm} 21$^{st}$ February 1985}
+\phone[mobile]{+351 93 952 64 69}
+\email{joselrmelo@gmail.com}
+
+\born{21 Feb 1985}
+
+%\homepage{paginas.fe.up.pt/\textasciitilde dee10008/}
+\social[linkedin]{https://www.linkedin.com/in/jose--melo/}
+%\social[googlescholar]{iocSrWsAAAAJ}
+%\photo[64pt]{Yue_Yu}
+
+\definecolor{web}{rgb}{0.2,0.2,0.2}
+\AfterPreamble{\hypersetup{
+  pdfauthor={José Melo},
+  pdftitle={CV José Melo},
+  pdfsubject={CV José Melo},
+  urlcolor=cyan,
+}}
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+
+\begin{document}
+%\include{motivation_letter_nato_2022.tex}
+%\include{motivation_letter_bosch.tex}
+%\include{motivation_letter_neocyber.tex}
+%\include{motivation_letter_canvas.tex}
+%\include{motivation_letter_gpt.tex}
+%\include{motivation_letter_canvas.tex}
+%\include{motivation_letter_outrider.tex}
+%\include{motivation_letter_colab_atlantic.tex}
+%\include{motivation_letter_agreena}
+%\include{motivation_letter_bnp.tex}
+%\include{motivation_letter_feup}
+%\include{motivation_letter_nyu}
+\include{cv_102017}
+%\include{motivation_letter_aeolus}
+\include{cv_references}
+\end{document}
