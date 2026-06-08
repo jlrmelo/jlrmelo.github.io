@@ -2,23 +2,20 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: Dr. José Melo
-  given: José Melo
-  family: Johnson
-  alternate: ''  # Example: 王伟
-  pronunciation: ''  # Example: Wáng Wěi
+  display: José Luís Melo
+  given: José Luís
+  family: Melo
   pronouns: he/him
 postnominals:
   - PhD
-  - MIEEE
-status:
-  icon: "☕️"
-role: Senior C++ Software Developer
+role: Senior AI Researcher
 bio: |
-  Alex Johnson is a Senior AI Research Scientist at Meta AI. His research
-  has been published in top conferences like NeurIPS and ICML, with over
-  10,000 citations. Alex is passionate about pushing the boundaries of AI
-  while ensuring ethical development.
+  Senior AI Researcher at Ocean Infinity, leading R&D that applies machine
+  learning to the autonomy and situational awareness of unmanned underwater
+  vehicles. Over fifteen years across academia, NATO research, and industry —
+  spanning navigation and localization, sensor fusion, target tracking, and
+  SLAM for marine robotics. PhD in Electrical and Computer Engineering from the
+  University of Porto.
 
 affiliations:
   - name: Ocean Infinity
@@ -26,88 +23,114 @@ affiliations:
 
 links:
   - icon: at-symbol
-    url: mailto:jose.melo@oceaninfinity.com
+    url: mailto:joselrmelo@gmail.com
     label: E-mail Me
-  - icon: brands/github
-    url: https://github.com/jlrmelo
   - icon: brands/linkedin
-    url: https://www.linkedin.com/in/example/
+    url: https://www.linkedin.com/in/jose--melo/
   - icon: academicons/google-scholar
     url: https://scholar.google.pt/citations?user=iocSrWsAAAAJ
   - icon: academicons/orcid
     url: https://orcid.org/0000-0001-5190-9730
+  - icon: brands/github
+    url: https://github.com/jlrmelo
 
 interests:
-  - Marine Robotics
-  - Computer Vision
-  - Unmanned Marine Systems
+  - Artificial Intelligence
+  - Autonomous Underwater Vehicles
+  - Robot Navigation & Localization
+  - Target Tracking
+  - Probabilistic Methods
 
 education:
-  - degree: PhD Computer Science
-    institution: Stanford University
-    start: 2015-09-01
-    end: 2019-06-30
+  - degree: PhD in Electrical and Computer Engineering
+    institution: Faculty of Engineering, University of Porto (FEUP)
+    start: 2010-01-01
+    end: 2016-12-31
     summary: |
-      Thesis on scaling laws for neural language models. Published 5 papers in NeurIPS and ICML.
-    button:
-      text: Download dissertation
-      url: /resume.pdf
-      icon: hero/arrow-down-tray
-  - degree: MS Computer Science
-    institution: Carnegie Mellon University
-    start: 2013-09-01
-    end: 2015-05-31
-  - degree: BS Computer Science
-    institution: MIT
-    start: 2009-09-01
-    end: 2013-05-31
+      Thesis: Navigation Algorithms for Sensor-limited Autonomous Underwater Vehicles.
+      Research in mobile robotics, stochastic processes, vector space methods, and machine
+      learning. Focus on sensor fusion, navigation, and target tracking of autonomous
+      underwater vehicles.
+  - degree: Integrated Master in Electrical and Computer Engineering
+    institution: Faculty of Engineering, University of Porto (FEUP)
+    start: 2003-09-01
+    end: 2008-07-31
+    summary: |
+      Thesis: Guidance and control of an ASV in AUV tracking operations.
+      Mathematical analysis, electronics, sensors, signal conditioning and instrumentation,
+      control systems, automation technologies and systems.
+  - degree: MSc in Robotics (Erasmus Exchange)
+    institution: University of Southern Denmark
+    start: 2007-09-01
+    end: 2008-06-30
+    summary: |
+      Industrial robotics, embedded systems, image processing, artificial intelligence.
 
 experience:
-  - role: Senior AI Research Scientist
-    org: Meta AI
-    start: 2020-01-01
+  - role: Senior Artificial Intelligence Researcher
+    org: Ocean Infinity
+    start: 2022-09-01
     summary: |
-      Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models.
-    button:
-      text: View portfolio
-      url: /
-      icon: hero/arrow-down-tray
-  - role: AI Research Intern
-    org: OpenAI
-    start: 2019-06-01
-    end: 2019-12-31
+      Product Owner and Technical Leader of a small team in a multi-year R&D project,
+      using AI-based methods to enable SLAM-based autonomy and situational awareness
+      of unmanned underwater vehicles. Lead Developer for AI-based solutions and data
+      products for unmanned underwater vehicles. Liaising with academia and research
+      partners.
+  - role: Expert Evaluator
+    org: Contractor
+    start: 2023-10-01
     summary: |
-      Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
-
-skills:
-  - name: Technical Skills
-    items:
-      - label: Python
-        level: 5
-      - label: Machine Learning
-        level: 5
-      - label: Cloud Computing
-        level: 4
-  - name: Research & Communication
-    items:
-      - label: Academic Writing
-        level: 5
-      - label: Conference Presentations
-        level: 4
-      - label: Grant Proposals
-        level: 4
-
-languages:
-  - name: English
-    level: 5
-    label: Native
-  - name: Spanish
-    level: 4
-    label: Fluent
-
-awards:
-  - title: Best Paper Award
-    awarder: NeurIPS
-    date: "2022-12-01"
-    summary: Awarded for groundbreaking work on efficient training of large models.
-    icon: hero/trophy
+      Evaluation of Research and Innovation project proposals for: European Commission,
+      Cyprus Research and Innovation Foundation, and the NATO Defence Innovation
+      Accelerator for the North Atlantic (DIANA).
+  - role: Scientist
+    org: NATO STO CMRE
+    start: 2018-01-01
+    end: 2021-11-30
+    summary: |
+      R&D activities under the project Cooperative Autonomy for Naval Mine Countermeasures.
+      Developing AI-based algorithms for a multi-phase system-of-systems approach for MCM
+      missions. Liaising with technical and non-technical stakeholders for MCM operations.
+  - role: Sabbatical Leave
+    org: ''
+    start: 2021-11-01
+    end: 2022-09-30
+    summary: |
+      Traveling around the world.
+  - role: Researcher
+    org: INESC TEC — Centre for Robotics and Intelligent Systems
+    start: 2011-01-01
+    end: 2017-10-31
+    summary: |
+      Coordinating research project proposals; secured 1M€ in external funding.
+      Algorithms for navigation and localization of AUVs/ASVs.
+      Software development for embedded systems.
+  - role: Consultant
+    org: UPIN — Technology Transfer Office, University of Porto
+    start: 2015-10-01
+    end: 2016-06-30
+    summary: |
+      Intellectual property portfolio management.
+      Patent analytics and patentability analysis.
+  - role: Invited Researcher
+    org: Honiden Lab, National Institute of Informatics
+    start: 2015-03-01
+    end: 2015-08-31
+    summary: |
+      Self-adaptive systems for robotics.
+      Sensor fusion, control, and navigation of a quadcopter.
+  - role: Software Engineer
+    org: CERN
+    start: 2009-02-01
+    end: 2010-08-31
+    summary: |
+      Developing and maintaining applications to control and monitor the L1 CMS Trigger.
+      On-call software expert (C++, Bash, Python, Java/JavaEE).
+      Supervising students on the execution of their projects.
+  - role: Automation Engineer
+    org: EFACEC Engenharia, S.A.
+    start: 2008-09-01
+    end: 2008-12-31
+    summary: |
+      Developing, maintaining, and upgrading client-tailored SCADA solutions.
+      Commissioning solutions directly at the client's site.
