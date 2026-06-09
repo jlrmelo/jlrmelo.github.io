@@ -10,6 +10,9 @@ main:
   - name: Defence
     url: defence/
     weight: 20
+  - name: Defense2
+    url: defense2/
+    weight: 25
   - name: Projects
     url: projects/
     weight: 30
