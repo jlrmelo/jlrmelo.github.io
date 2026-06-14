@@ -10,5 +10,5 @@ sections:
     design:
       date_format: Jan 2006
       # Show education before experience.
-      is_education_first: true
+      is_education_first: false
 ---

@@ -23,11 +23,9 @@ social:
     link: https://orcid.org/0000-0001-5190-9730
 
 interests:
-  - Artificial Intelligence
-  - Autonomous Underwater Vehicles
-  - Robot Navigation & Localization
-  - Target Tracking
-  - Probabilistic Methods
+  - Perception and Autonomy for Unmanned Marine Vehicles (AUVs, ROVs, USVs)
+  - Underwater Navigation & Localization
+  - Probabilistic Signal Processing
 
 education:
   - area: PhD in Electrical and Computer Engineering
@@ -158,4 +156,3 @@ vehicles. Over fifteen years across academia, NATO research, and industry —
 spanning navigation and localization, sensor fusion, target tracking, and
 SLAM for marine robotics. PhD in Electrical and Computer Engineering from the
 University of Porto.
-
