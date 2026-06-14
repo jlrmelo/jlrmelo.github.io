@@ -5,11 +5,11 @@ last_name: Melo
 superuser: true
 highlight_name: true
 
-role: Senior AI Researcher
+#role: Senior AI Researcher
 
-organizations:
-  - name: Ocean Infinity
-    url: https://oceaninfinity.com/
+#organizations:
+#  - name: Ocean Infinity
+#    url: https://oceaninfinity.com/
 
 social:
   - icon: linkedin
@@ -17,7 +17,7 @@ social:
     link: https://www.linkedin.com/in/jose--melo/
   - icon: envelope
     icon_pack: fas
-    link: mailto:joselrmelo@gmail.com
+    link: mailto:jose.melo@oceaninfinity.com
   - icon: orcid
     icon_pack: ai
     link: https://orcid.org/0000-0001-5190-9730

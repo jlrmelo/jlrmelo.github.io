@@ -69,6 +69,7 @@ education:
 experience:
   - role: Senior Artificial Intelligence Researcher
     org: Ocean Infinity
+    org_url: https://oceaninfinity.com/
     start: 2022-09-01
     summary: |
       Product Owner and Technical Leader of a small team in a multi-year R&D project,
@@ -85,6 +86,7 @@ experience:
       Accelerator for the North Atlantic (DIANA).
   - role: Scientist
     org: NATO STO CMRE
+    org_url: https://www.cmre.nato.int
     start: 2018-01-01
     end: 2021-11-30
     summary: |
@@ -99,6 +101,7 @@ experience:
       Traveling around the world.
   - role: Researcher
     org: INESC TEC — Centre for Robotics and Intelligent Systems
+    org_url: https://www.inesctec.pt/en
     start: 2011-01-01
     end: 2017-10-31
     summary: |
@@ -107,6 +110,7 @@ experience:
       Software development for embedded systems.
   - role: Consultant
     org: UPIN — Technology Transfer Office, University of Porto
+    org_url: https://upin.up.pt/en
     start: 2015-10-01
     end: 2016-06-30
     summary: |
@@ -114,6 +118,7 @@ experience:
       Patent analytics and patentability analysis.
   - role: Invited Researcher
     org: Honiden Lab, National Institute of Informatics
+    org_url: https://www.nii.ac.jp/en/
     start: 2015-03-01
     end: 2015-08-31
     summary: |
@@ -121,6 +126,7 @@ experience:
       Sensor fusion, control, and navigation of a quadcopter.
   - role: Software Engineer
     org: CERN
+    org_url: https://home.cern/
     start: 2009-02-01
     end: 2010-08-31
     summary: |
@@ -129,6 +135,7 @@ experience:
       Supervising students on the execution of their projects.
   - role: Automation Engineer
     org: EFACEC Engenharia, S.A.
+    org_url: http://www.efacec.pt
     start: 2008-09-01
     end: 2008-12-31
     summary: |

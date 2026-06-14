@@ -10,10 +10,6 @@ sections:
     content:
       # The author profile is defined in `data/authors/me.yaml`.
       username: me
-      # Call-to-action button under the biography (links to the full CV).
-      button:
-        text: Full CV
-        url: about/
     design:
       # Use the new Gradient Mesh which automatically adapts to the selected theme colors
       background:
