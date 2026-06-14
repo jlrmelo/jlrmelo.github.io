@@ -7,12 +7,9 @@ main:
   - name: About
     url: about/
     weight: 10
-  - name: Defence
+  - name: Defence Work
     url: defence/
     weight: 20
-  - name: Defense2
-    url: defense2/
-    weight: 25
   - name: Projects
     url: projects/
     weight: 30

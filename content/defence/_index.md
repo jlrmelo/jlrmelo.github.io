@@ -7,17 +7,15 @@ sections:
     content:
       title: 'Independent Defence Expert & Evaluator'
       text: |
-        Since October 2023, I serve as an independent **Expert Evaluator** for Research and Innovation project proposals, assessing technical merit and impact potential for defence and dual-use technology programmes across multiple institutions.
+        Since October 2023, I serve as an independent **Defence Expert and Evaluator** for Research and Innovation project proposals, assessing technical merit and impact potential for defence and dual-use technology programmes across multiple institutions.
 
-        ## Evaluating for
-
-        **European Commission**
+        ## **European Commission**
         Evaluation of R&I project proposals under European defence and security funding programmes.
 
-        **Cyprus Research and Innovation Foundation (RIF)**
+        ## **Cyprus Research and Innovation Foundation (RIF)**
         Evaluation of research proposals in robotics, autonomy, and related fields.
 
-        **NATO Defence Innovation Accelerator for the North Atlantic (DIANA)**
+        ## **NATO Defence Innovation Accelerator for the North Atlantic (DIANA)**
         Evaluation of deep-tech proposals aimed at addressing critical defence and security challenges for the NATO Alliance.
 
         ## Areas of Technical Expertise
