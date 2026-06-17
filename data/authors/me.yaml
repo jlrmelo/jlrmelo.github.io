@@ -8,18 +8,20 @@ name:
   pronouns: he/him
 postnominals:
   - PhD
-role: Senior AI Researcher
+# role: Senior AI Researcher
 bio: |
-  Senior AI Researcher at Ocean Infinity, leading R&D that applies machine
-  learning to the autonomy and situational awareness of unmanned underwater
-  vehicles. Over fifteen years across academia, NATO research, and industry —
-  spanning navigation and localization, sensor fusion, target tracking, and
-  SLAM for marine robotics. PhD in Electrical and Computer Engineering from the
-  University of Porto.
+  Curently I am a Senior AI Researcher at [Ocean Infinity](https://oceaninfinity.com/), leading R&D that applies machine
+  learning to the autonomy and situational awareness of unmanned marine vehicles.
 
-affiliations:
-  - name: Ocean Infinity
-    url: https://oceaninfinity.com/
+  Over fifteen years experience  from academia, defense, and industry,
+  spanning navigation and localization, sensor fusion, target tracking, and
+  SLAM for marine robotics.
+
+  PhD in Electrical and Computer Engineering from the University of Porto.
+
+#affiliations:
+#  - name: Ocean Infinity
+#    url: https://oceaninfinity.com/
 
 links:
   - icon: at-symbol
