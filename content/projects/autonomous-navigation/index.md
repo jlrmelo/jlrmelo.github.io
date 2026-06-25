@@ -1,6 +1,8 @@
 ---
 title: Autonomous Underwater Navigation
 summary: AI-based SLAM for autonomous underwater vehicles in GPS-denied environments.
+authors:
+  - me
 tags:
   - AUV
   - SLAM

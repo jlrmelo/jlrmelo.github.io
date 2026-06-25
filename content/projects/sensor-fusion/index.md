@@ -1,6 +1,8 @@
 ---
 title: 'Multi-Sensor Fusion for Marine Robotics'
 date: 2023-06-01
+authors:
+  - me
 tags:
   - Sensor Fusion
   - AUV

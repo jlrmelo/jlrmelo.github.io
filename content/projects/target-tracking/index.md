@@ -1,6 +1,8 @@
 ---
 title: 'Cooperative Target Tracking for Mine Countermeasures'
 date: 2020-03-01
+authors:
+  - me
 tags:
   - Target Tracking
   - AI

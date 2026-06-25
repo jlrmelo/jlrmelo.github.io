@@ -1,10 +1,6 @@
 {{/* Hugo Blox: Markdown (LOCAL OVERRIDE) */}}
-{{/* Overrides modules/blox/blox/markdown/block.html.                          */}}
-{{/* Only change vs. upstream: dropped `lg:prose-xl` from the body wrapper so   */}}
-{{/* markdown text renders at the site's normal size instead of being enlarged  */}}
-{{/* on desktop (which made the Defence page look different from the rest).     */}}
-{{/* Documentation: https://hugoblox.com/blocks/ */}}
-{{/* License: https://github.com/HugoBlox/kit/blob/main/LICENSE.md */}}
+{{/* Renders title as h2 within prose so Defence section headings match        */}}
+{{/* the text formatting of project single pages.                              */}}
 
 {{/* Initialise */}}
 {{ $page := .wcPage }}
@@ -12,18 +8,13 @@
 {{ $content := $block.content }}
 {{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
 {{ $title := "" }}
-{{ with index $content "title" }}{{ $title = printf "%v" . | emojify | $page.RenderString }}{{ end }}
+{{ with index $content "title" }}{{ $title = printf "%v" . | emojify }}{{ end }}
 {{ $text := "" }}
 {{ with index $content "text" }}{{ $text = printf "%v" . | emojify | $page.RenderString | safeHTML }}{{ end }}
 
 <div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center px-6">
-
-  {{ with $title }}
-  <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
-    {{ . }}
+  <div class="prose prose-slate dark:prose-invert max-w-prose w-full">
+    {{ with $title }}<h2>{{ . }}</h2>{{ end }}
+    {{ with $text }}{{ . }}{{ end }}
   </div>
-  {{ end }}
-
-  {{/* We use DIV rather than P to support `prose` class and multiple paragraphs */}}
-  {{ with $text }}<div class="prose prose-slate dark:prose-invert max-w-prose">{{ . }}</div>{{ end }}
 </div>
