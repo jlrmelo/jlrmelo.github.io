@@ -141,27 +141,41 @@ experience:
       Commissioning solutions directly at the client's site.
 
 skills:
-  - name: Python
-    percent: 85
-    icon: devicons/python
-  - name: C++
-    percent: 75
-    icon: devicons/cplusplus
-  - name: MATLAB
-    percent: 70
-    icon: devicons/matlab
-  - name: ROS
-    percent: 70
-    icon: devicons/ros
-  - name: Git
-    percent: 90
-    icon: devicons/git
-  - name: Docker
-    percent: 65
-    icon: devicons/docker
-  - name: LaTeX
-    percent: 85
-    icon: devicons/latex
+  - name: Technical
+    items:
+      - name: Python
+        icon: devicons/python
+        level: 4
+      - name: C++
+        icon: devicons/cplusplus
+        level: 4
+      - name: MATLAB
+        icon: devicons/matlab
+        level: 4
+      - name: ROS
+        icon: devicons/ros
+        level: 4
+      - name: Git
+        icon: devicons/git
+        level: 5
+      - name: Docker
+        icon: devicons/docker
+        level: 3
+      - name: LaTeX
+        icon: devicons/latex
+        level: 4
+  - name: Research
+    items:
+      - name: AUV Operations
+        level: 5
+      - name: SLAM & Navigation
+        level: 5
+      - name: Sensor Fusion
+        level: 5
+      - name: Target Tracking
+        level: 5
+      - name: ML for Robotics
+        level: 4
 
 languages:
   - name: Portuguese
