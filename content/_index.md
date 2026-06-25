@@ -9,9 +9,9 @@ sections:
   - block: resume-biography
     content:
       username: me
-      button:
-        text: Download CV
-        url: uploads/CV_jmelo.pdf
+      #button:
+      #  text: Download CV
+      #  url: uploads/CV_jmelo.pdf
     design:
       background:
         gradient_mesh:
