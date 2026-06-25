@@ -143,3 +143,34 @@ experience:
     summary: |
       Developing, maintaining, and upgrading client-tailored SCADA solutions.
       Commissioning solutions directly at the client's site.
+
+skills:
+  - name: Python
+    percent: 85
+    icon: devicons/python
+  - name: C++
+    percent: 75
+    icon: devicons/cplusplus
+  - name: MATLAB
+    percent: 70
+    icon: devicons/matlab
+  - name: ROS
+    percent: 70
+    icon: devicons/ros
+  - name: Git
+    percent: 90
+    icon: devicons/git
+  - name: Docker
+    percent: 65
+    icon: devicons/docker
+  - name: LaTeX
+    percent: 85
+    icon: devicons/latex
+
+languages:
+  - name: Portuguese
+    percent: 100
+  - name: English
+    percent: 95
+  - name: Spanish
+    percent: 30
