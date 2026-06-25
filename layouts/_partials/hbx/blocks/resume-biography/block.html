@@ -406,7 +406,8 @@
             </div>
             <div>
               <div class="text-sm font-medium">{{ index . "degree" }}</div>
-              <div class="text-xs text-gray-500 dark:text-gray-400">{{ index . "institution" }}</div>
+              {{ $end_year := "" }}{{ with index . "end" }}{{ $end_year = (time (printf "%v" .)).Format "2006" }}{{ end }}
+              <div class="text-xs text-gray-500 dark:text-gray-400">{{ index . "institution" }}{{ if $end_year }}, {{ $end_year }}{{ end }}</div>
             </div>
           </li>
           {{ end }}
