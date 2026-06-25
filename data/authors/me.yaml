@@ -10,15 +10,11 @@ postnominals:
   - PhD
 # role: Senior AI Researcher
 bio: |
-  Curently I am a Senior AI Researcher at [Ocean Infinity](https://oceaninfinity.com/), leading R&D that applies machine
-  learning to the autonomy and situational awareness of unmanned marine vehicles.
+  I am a Senior AI Researcher at [Ocean Infinity](https://oceaninfinity.com/), eading R&D in machine learning for the autonomy and situational awareness of unmanned marine vehicles.
 
-  Over fifteen years experience  from academia, defense, and industry,
-  spanning navigation and localization, sensor fusion, target tracking, and
-  SLAM for marine robotics.
+My career spans more than 15 years across academia, defense, and industry, specializing in navigation and localization, sensor fusion, target tracking, and SLAM for marine robotics.
 
-  PhD in Electrical and Computer Engineering from the University of Porto.
-
+I hold a PhD in Electrical and Computer Engineering from the University of Porto.
 #affiliations:
 #  - name: Ocean Infinity
 #    url: https://oceaninfinity.com/
@@ -172,5 +168,5 @@ languages:
     percent: 100
   - name: English
     percent: 95
-  - name: Spanish
-    percent: 30
+  - name: Italian
+    percent: 50
