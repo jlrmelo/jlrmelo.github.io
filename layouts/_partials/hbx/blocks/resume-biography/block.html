@@ -364,6 +364,31 @@
   </p>
   {{ end }}
 
+  {{/* Education section — reads from $profile.education in data/authors/me.yaml */}}
+  {{ $education := $profile.education }}
+  {{ if $education }}
+  <div class="pt-6 w-full max-w-prose">
+    <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-3">Education</h3>
+    {{ range $education }}
+      {{ $degree := index . "degree" }}
+      {{ $institution := index . "institution" }}
+      {{ $end_year := "" }}
+      {{ with index . "end" }}
+        {{ $end_year = (time (printf "%v" .)).Format "2006" }}
+      {{ end }}
+      <div class="flex items-start gap-3 mb-3">
+        <div class="mt-1 text-gray-400 dark:text-gray-500 shrink-0">
+          {{ partial "functions/get_icon" (dict "name" "hero/academic-cap" "attributes" "style=\"height:1.1rem;\"") }}
+        </div>
+        <div>
+          <div class="text-sm font-medium">{{ $degree }}</div>
+          <div class="text-xs text-gray-500 dark:text-gray-400">{{ $institution }}{{ if $end_year }}, {{ $end_year }}{{ end }}</div>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+  {{ end }}
+
   {{ if and $button_text $button_link }}
   {{ $button_href := $button_link }}
   {{ $button_target := "" }}
