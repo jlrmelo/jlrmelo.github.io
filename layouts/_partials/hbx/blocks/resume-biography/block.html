@@ -262,152 +262,160 @@
 {{ with index $button "text" }}{{ $button_text = strings.TrimSpace (printf "%v" .) }}{{ end }}
 {{ with index $button "url" }}{{ $button_link = strings.TrimSpace (printf "%v" .) }}{{ end }}
 
-<div id="profile" class="resume-biography flex justify-center items-center flex-col dark:text-white">
-  {{ if $avatar }}
+{{ $education := $profile.education }}
 
-  <div class="avatar-wrapper {{ if $img }}-mt-[105px]{{else}}mt-10{{end}}" style="width: {{$display_size}}px; height: {{$display_size}}px;">
-    {{ $avatar_image := $avatar.Fill (printf "%sx%s Center" $generation_size $generation_size) }}
-    <img class="avatar {{$shape_class}} bg-white dark:bg-gray-800 p-1" src="{{ $avatar_image.RelPermalink }}" alt="{{ $profile_title }}"
-         width="{{$display_size}}" height="{{$display_size}}"
-         style="width: {{$display_size}}px; height: {{$display_size}}px; object-fit: cover;">
-    {{ with $status_icon }}<span class="avatar-emoji">{{ . | emojify }}</span>{{ end }}
-  </div>
-  {{ end }}
+<div id="profile" class="resume-biography flex flex-col md:flex-row justify-center gap-12 dark:text-white">
 
-  {{/* Extract pronunciation for ruby annotation */}}
-  {{ $name_pronunciation := "" }}
-  {{ with $profile.name_pronunciation }}
-    {{ if eq (printf "%T" .) "string" }}
-      {{ $name_pronunciation = strings.TrimSpace . }}
-    {{ end }}
-  {{ end }}
-
-  {{/* Name with optional ruby pronunciation */}}
-  {{ if and $profile_title $name_pronunciation }}
-    <h1 class="text-3xl font-bold mb-2 mt-6">
-      <ruby class="hb-ruby-name">{{ $profile_title }}<rt>{{ $name_pronunciation }}</rt></ruby>
-    </h1>
-  {{ else }}
-    <div class="text-3xl font-bold mb-2 mt-6">
-      {{- $profile_title -}}
+  {{/* LEFT COLUMN: Avatar, name, title, social links */}}
+  <div class="flex-none mx-auto md:mx-0 flex flex-col items-center">
+    {{ if $avatar }}
+    <div class="avatar-wrapper {{ if $img }}-mt-[105px]{{else}}mt-10{{end}}" style="width: {{$display_size}}px; height: {{$display_size}}px;">
+      {{ $avatar_image := $avatar.Fill (printf "%sx%s Center" $generation_size $generation_size) }}
+      <img class="avatar {{$shape_class}} bg-white dark:bg-gray-800 p-1" src="{{ $avatar_image.RelPermalink }}" alt="{{ $profile_title }}"
+           width="{{$display_size}}" height="{{$display_size}}"
+           style="width: {{$display_size}}px; height: {{$display_size}}px; object-fit: cover;">
+      {{ with $status_icon }}<span class="avatar-emoji">{{ . | emojify }}</span>{{ end }}
     </div>
-  {{ end }}
-  {{- with $profile_pronouns -}}
-    <div class="text-lg font-normal text-gray-600 dark:text-gray-400 -mt-1 mb-2">({{ . }})</div>
-  {{- end -}}
+    {{ end }}
 
-  {{ with $profile_role }}<h3 class="font-semibold mb-1">{{ . | markdownify | emojify }}</h3>{{ end }}
-
-  {{ range $affiliations }}
-  <div class="mb-2">
-    {{ $name := index . "name" }}
-    {{ $url := index . "url" }}
-    {{ if $url }}
-      {{ $link := $url }}
-      {{ $target := "" }}
-      {{ $scheme := (urls.Parse $link).Scheme }}
-      {{ if not $scheme }}
-        {{ if not (hasPrefix $link "#") }}
-          {{ $link = $link | relLangURL }}
-        {{ end }}
-      {{ else if in (slice "http" "https") $scheme }}
-        {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+    {{/* Name with optional ruby pronunciation */}}
+    {{ $name_pronunciation := "" }}
+    {{ with $profile.name_pronunciation }}
+      {{ if eq (printf "%T" .) "string" }}
+        {{ $name_pronunciation = strings.TrimSpace . }}
       {{ end }}
-      <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }}>
-        <div>{{ $name }}</div>
-      </a>
+    {{ end }}
+
+    {{ if and $profile_title $name_pronunciation }}
+      <h1 class="text-3xl font-bold mb-2 mt-6">
+        <ruby class="hb-ruby-name">{{ $profile_title }}<rt>{{ $name_pronunciation }}</rt></ruby>
+      </h1>
     {{ else }}
-      <div>{{ $name }}</div>
-    {{ end }}
-  </div>
-  {{ end }}
-
-  {{/* OVERRIDE: social links moved here, to the bottom of the section. */}}
-  {{ if gt (len $links) 0 }}
-  <ul class="network-icon dark:text-zinc-100 mt-6">
-    {{ range $links }}
-      {{ $link := index . "url" }}
-      {{ $icon := index . "icon" | default "hero/link" }}
-      {{ $label := index . "label" }}
-      {{ $scheme := (urls.Parse $link).Scheme }}
-      {{ $target := "" }}
-      {{ if not $scheme }}
-        {{ if not (hasPrefix $link "#") }}
-          {{ $link = $link | relLangURL }}
-        {{ end }}
-        {{ if eq (path.Ext $link) ".pdf" }}{{ $target = "target=\"_blank\" rel=\"noopener\"" }}{{ end }}
-      {{ else if in (slice "http" "https") $scheme }}
-        {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
-      {{ end }}
-      {{ $aria := $label | default $icon | default "link" }}
-      <li>
-        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} aria-label="{{ $aria }}"
-          {{ if $label }} data-toggle="tooltip" data-placement="top" title="{{ $label | htmlEscape }}"{{ end }}>
-          {{ partial "functions/get_icon" (dict "name" $icon "attributes" "style=\"height: 1.5rem;\"")  }}
-        </a>
-      </li>
-    {{ end }}
-  </ul>
-
-  {{ if $bio_content }}
-  <div class="pt-2 d-flex justify-content-center prose prose-slate lg:prose-xl dark:prose-invert">
-    <div class="bio-text" {{ if $bio_style }}{{ (printf "style=\"%s\"" $bio_style) | safeHTMLAttr }}{{ end }}>
-      {{ $bio_content | emojify | $page.RenderString }}
-    </div>
-  </div>
-  {{ end }}
-
-  {{/* OVERRIDE: interests rendered as pills, directly after the bio text. */}}
-  {{ if gt (len $interests) 0 }}
-  <p class="pt-4 text-sm text-gray-600 dark:text-gray-400">
-    {{ range $i, $v := $interests }}{{ if $i }} · {{ end }}{{ $v | emojify }}{{ end }}
-  </p>
-  {{ end }}
-
-  {{/* Education section — reads from $profile.education in data/authors/me.yaml */}}
-  {{ $education := $profile.education }}
-  {{ if $education }}
-  <div class="pt-6 w-full max-w-prose">
-    <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-3">Education</h3>
-    {{ range $education }}
-      {{ $degree := index . "degree" }}
-      {{ $institution := index . "institution" }}
-      {{ $end_year := "" }}
-      {{ with index . "end" }}
-        {{ $end_year = (time (printf "%v" .)).Format "2006" }}
-      {{ end }}
-      <div class="flex items-start gap-3 mb-3">
-        <div class="mt-1 text-gray-400 dark:text-gray-500 shrink-0">
-          {{ partial "functions/get_icon" (dict "name" "hero/academic-cap" "attributes" "style=\"height:1.1rem;\"") }}
-        </div>
-        <div>
-          <div class="text-sm font-medium">{{ $degree }}</div>
-          <div class="text-xs text-gray-500 dark:text-gray-400">{{ $institution }}{{ if $end_year }}, {{ $end_year }}{{ end }}</div>
-        </div>
+      <div class="text-3xl font-bold mb-2 mt-6">
+        {{- $profile_title -}}
       </div>
     {{ end }}
-  </div>
-  {{ end }}
+    {{- with $profile_pronouns -}}
+      <div class="text-lg font-normal text-gray-600 dark:text-gray-400 -mt-1 mb-2">({{ . }})</div>
+    {{- end -}}
 
-  {{ if and $button_text $button_link }}
-  {{ $button_href := $button_link }}
-  {{ $button_target := "" }}
-  {{ $button_scheme := (urls.Parse $button_href).Scheme }}
-  {{ if not $button_scheme }}
-    {{ if not (hasPrefix $button_href "#") }}
-      {{ $button_href = $button_href | relLangURL }}
+    {{ with $profile_role }}<h3 class="font-semibold mb-1">{{ . | markdownify | emojify }}</h3>{{ end }}
+
+    {{ range $affiliations }}
+    <div class="mb-2">
+      {{ $name := index . "name" }}
+      {{ $url := index . "url" }}
+      {{ if $url }}
+        {{ $link := $url }}
+        {{ $target := "" }}
+        {{ $scheme := (urls.Parse $link).Scheme }}
+        {{ if not $scheme }}
+          {{ if not (hasPrefix $link "#") }}
+            {{ $link = $link | relLangURL }}
+          {{ end }}
+        {{ else if in (slice "http" "https") $scheme }}
+          {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+        {{ end }}
+        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }}>
+          <div>{{ $name }}</div>
+        </a>
+      {{ else }}
+        <div>{{ $name }}</div>
+      {{ end }}
+    </div>
     {{ end }}
-    {{ if eq (path.Ext $button_href) ".pdf" }}{{ $button_target = "target=\"_blank\" rel=\"noopener\"" }}{{ end }}
-  {{ else if in (slice "http" "https") $button_scheme }}
-    {{ $button_target = "target=\"_blank\" rel=\"noopener\"" }}
-  {{ end }}
-  <a href="{{ $button_href | safeURL }}" {{ $button_target | safeHTMLAttr }} class="mt-4 inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg transition-colors hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-gray-900 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:text-white dark:focus:ring-gray-700"><svg class="w-3.5 h-3.5 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-    <path d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z"/>
-    <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
-  </svg> {{ $button_text }}</a>
-  {{ end }}
 
+    {{ if gt (len $links) 0 }}
+    <ul class="network-icon dark:text-zinc-100 mt-6">
+      {{ range $links }}
+        {{ $link := index . "url" }}
+        {{ $icon := index . "icon" | default "hero/link" }}
+        {{ $label := index . "label" }}
+        {{ $scheme := (urls.Parse $link).Scheme }}
+        {{ $target := "" }}
+        {{ if not $scheme }}
+          {{ if not (hasPrefix $link "#") }}
+            {{ $link = $link | relLangURL }}
+          {{ end }}
+          {{ if eq (path.Ext $link) ".pdf" }}{{ $target = "target=\"_blank\" rel=\"noopener\"" }}{{ end }}
+        {{ else if in (slice "http" "https") $scheme }}
+          {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+        {{ end }}
+        {{ $aria := $label | default $icon | default "link" }}
+        <li>
+          <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} aria-label="{{ $aria }}"
+            {{ if $label }} data-toggle="tooltip" data-placement="top" title="{{ $label | htmlEscape }}"{{ end }}>
+            {{ partial "functions/get_icon" (dict "name" $icon "attributes" "style=\"height: 1.5rem;\"") }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
 
-  {{ end }}
+  {{/* RIGHT COLUMN: Bio, CV button, Interests + Education side-by-side grid */}}
+  <div class="flex-auto max-w-prose md:mt-12">
+    {{ if $bio_content }}
+    <div class="pt-2 d-flex justify-content-center prose prose-slate dark:prose-invert">
+      <div class="bio-text" {{ if $bio_style }}{{ (printf "style=\"%s\"" $bio_style) | safeHTMLAttr }}{{ end }}>
+        {{ $bio_content | emojify | $page.RenderString }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ if and $button_text $button_link }}
+    {{ $button_href := $button_link }}
+    {{ $button_target := "" }}
+    {{ $button_scheme := (urls.Parse $button_href).Scheme }}
+    {{ if not $button_scheme }}
+      {{ if not (hasPrefix $button_href "#") }}
+        {{ $button_href = $button_href | relLangURL }}
+      {{ end }}
+      {{ if eq (path.Ext $button_href) ".pdf" }}{{ $button_target = "target=\"_blank\" rel=\"noopener\"" }}{{ end }}
+    {{ else if in (slice "http" "https") $button_scheme }}
+      {{ $button_target = "target=\"_blank\" rel=\"noopener\"" }}
+    {{ end }}
+    <a href="{{ $button_href | safeURL }}" {{ $button_target | safeHTMLAttr }} class="mt-4 inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg transition-colors hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-gray-900 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:text-white dark:focus:ring-gray-700"><svg class="w-3.5 h-3.5 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z"/>
+      <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+    </svg> {{ $button_text }}</a>
+    {{ end }}
+
+    {{ if or (gt (len $interests) 0) $education }}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 dark:text-gray-300">
+
+      {{ if gt (len $interests) 0 }}
+      <div>
+        <div class="section-subheading mb-3">Interests</div>
+        <ul class="list-disc list-inside space-y-1 pl-5">
+          {{ range $interests }}
+          <li>{{ . | emojify }}</li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+
+      {{ if $education }}
+      <div>
+        <div class="section-subheading mb-3">Education</div>
+        <ul class="space-y-3">
+          {{ range $education }}
+          <li class="flex items-start gap-3">
+            <div class="mt-0.5 text-gray-400 dark:text-gray-500 shrink-0">
+              {{ partial "functions/get_icon" (dict "name" "hero/academic-cap" "attributes" "style=\"height:1.1rem;\"") }}
+            </div>
+            <div>
+              <div class="text-sm font-medium">{{ index . "degree" }}</div>
+              <div class="text-xs text-gray-500 dark:text-gray-400">{{ index . "institution" }}</div>
+            </div>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+
+    </div>
+    {{ end }}
+  </div>
 
 </div>
