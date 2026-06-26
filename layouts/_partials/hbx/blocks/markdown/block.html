@@ -1,6 +1,6 @@
 {{/* Hugo Blox: Markdown (LOCAL OVERRIDE) */}}
-{{/* Renders title as h2 within prose so Defence section headings match        */}}
-{{/* the text formatting of project single pages.                              */}}
+{{/* Title renders with explicit classes matching project page heading scale;  */}}
+{{/* body stays in prose for list/bold formatting.                             */}}
 
 {{/* Initialise */}}
 {{ $page := .wcPage }}
@@ -12,9 +12,11 @@
 {{ $text := "" }}
 {{ with index $content "text" }}{{ $text = printf "%v" . | emojify | $page.RenderString | safeHTML }}{{ end }}
 
-<div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center px-6">
-  <div class="prose prose-slate dark:prose-invert max-w-prose w-full">
-    {{ with $title }}<h2>{{ . }}</h2>{{ end }}
-    {{ with $text }}{{ . }}{{ end }}
-  </div>
+<div class="flex flex-col max-w-prose mx-auto gap-2 px-6 w-full">
+  {{ with $title }}
+  <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">{{ . }}</h2>
+  {{ end }}
+  {{ with $text }}
+  <div class="prose prose-slate dark:prose-invert max-w-none">{{ . }}</div>
+  {{ end }}
 </div>

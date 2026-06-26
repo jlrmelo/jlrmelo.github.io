@@ -1,0 +1,52 @@
+{{ $profile := .profile }}
+{{ $page := .page }}
+{{ $site_type := site.Params.hugoblox.identity.type | humanize | default "Person" }}
+{{ $avatar_shape := site.Params.hugoblox.layout.avatar_shape | default "circle" }}
+
+{{ if $profile }}
+  {{ $profile_url := printf "/authors/%s/" $profile.slug }}
+  {{ if and (eq $site_type "Person") ($profile.is_owner) }}
+    {{ $profile_url = site.BaseURL }}
+  {{ end }}
+
+  {{ $avatar := $profile.avatar }}
+
+<div class="flex items-center gap-3 pt-8 pb-4">
+  {{ if $avatar }}
+    {{ if not (reflect.IsImageResourceProcessable $avatar) }}
+    <img
+      class="h-10 w-10 {{if ne $avatar_shape "square"}}rounded-full{{end}} object-cover flex-shrink-0"
+      src="{{ $avatar.RelPermalink }}"
+      width="40"
+      height="40"
+      alt="{{$profile.title}}"
+      loading="lazy"
+      />
+    {{ else }}
+    {{ $responsive := partial "functions/process_responsive_image.html" (dict
+        "image" $avatar
+        "mode" "fill"
+        "aspect_ratio" "1:1"
+        "anchor" "Center"
+        "sizes" (slice 40 80)
+    ) }}
+    <img
+      class="h-10 w-10 {{if ne $avatar_shape "square"}}rounded-full{{end}} object-cover flex-shrink-0"
+      srcset="{{ $responsive.srcset }}"
+      sizes="40px"
+      src="{{ $responsive.fallback.RelPermalink }}"
+      width="40"
+      height="40"
+      alt="{{$profile.title}}"
+      loading="lazy"
+      />
+    {{ end }}
+  {{ end }}
+  <span class="text-sm font-medium text-neutral-800 dark:text-neutral-300">
+    {{if $profile_url}}<a href="{{$profile_url}}" class="no-underline hover:underline">{{end}}
+    {{$profile.title}}
+    {{if $profile_url}}</a>{{end}}
+  </span>
+</div>
+
+{{end}}
