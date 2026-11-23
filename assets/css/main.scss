@@ -34,7 +34,9 @@
   --fs-md: 1.125rem;
   --fs-h2: clamp(1.75rem, 3vw, 2.25rem);
   --fs-h1: clamp(2.6rem, 5.5vw, 4.5rem);
-  color-scheme: light;
+  /* Not just `light`: in a dark-mode browser that would let Android WebView (DuckDuckGo, in-app browsers)
+     algorithmically darken the light theme to gray. Declaring dark support too tells it the page handles both. */
+  color-scheme: light dark;
 }
 
 /* Dark palette: follows the system setting unless the theme toggle forces one (data-theme on <html>). */
