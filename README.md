@@ -13,7 +13,7 @@ External links open in a new tab (`target="_blank" rel="noopener"`); links betwe
 
 | What | Where |
 |---|---|
-| Name, role, headline (with the two highlighted words), focus tags, key figures, bio, profile links, photo | `_data/profile.yml`. The photo is `assets/img/profile.webp`: a metadata-free, 440px-wide transparent cutout (twice its largest display size). The original is kept, unpublished, in `_private/`. |
+| Name, role, headline (with the two highlighted words), focus tags, key figures, bio, profile links, the "Get in touch" button (`contact:`, which links to `/contact/`; `contact.web3forms_key` is the Web3Forms access key, empty shows LinkedIn instead of the form), photo | `_data/profile.yml`. The photo is `assets/img/profile.webp`: a metadata-free, 440px-wide transparent cutout (twice its largest display size). The original is kept, unpublished, in `_private/`. |
 | Defence & Security consulting | `_data/advisory.yml` (the intro appears in the landing-page panel; the engagements appear on `/defence/`) |
 | Experience | `_data/experience.yml` |
 | Education | `_data/education.yml` |
@@ -22,6 +22,17 @@ External links open in a new tab (`target="_blank" rel="noopener"`); links betwe
 | Publications | `_bibliography/publications.bib`, rendered by jekyll-scholar via `_layouts/bib.html`. Grouped by `@Article`, `@InProceedings` and `@TechReport`. |
 | Navigation | `_data/navigation.yml` (`short` is the label used on phones) |
 | Styles (colours, type, spacing) | `assets/css/main.scss`. The tokens at the top set light and dark mode. |
+| Contact page (`/contact/`) | `contact.html` and `assets/js/contact.js`. The Web3Forms key is `contact.web3forms_key` in `_data/profile.yml`. |
+
+### Contact form setup
+
+The form posts to [Web3Forms](https://web3forms.com), which forwards messages to an inbox. The inbox address is set in the Web3Forms dashboard, not in this repo, so it never appears in the published site.
+
+1. Create an access key at web3forms.com for the inbox address.
+2. In the Web3Forms dashboard, enable hCaptcha for the form.
+3. Paste the key into `contact.web3forms_key` in `_data/profile.yml`. An empty key hides the form and shows a LinkedIn link instead.
+
+The key is public by design: it ends up in the page source, and on its own it can only send to the inbox set in Web3Forms. After deploying, send a test message from `/contact/`.
 
 `_private/` is gitignored and never published. Keep the full CV there.
 

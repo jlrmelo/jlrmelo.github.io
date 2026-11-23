@@ -36,3 +36,4 @@ exclude:
   - vendor/
   - .bundle/
   - _private/
+  - docs/

@@ -1,4 +1,10 @@
 {%- assign c = site.data.profile.contact -%}
 {%- if c.url -%}
-<a class="btn btn-primary" href="{{ c.url }}"{% if c.url contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ c.label | default: 'Get in touch' }}</a>
+{%- assign scheme = c.url | slice: 0, 7 -%}
+{%- if c.url contains '://' or scheme == 'mailto:' -%}
+{%- assign href = c.url -%}
+{%- else -%}
+{%- assign href = c.url | relative_url -%}
+{%- endif -%}
+<a class="btn btn-primary" href="{{ href }}"{% if c.url contains '://' %} target="_blank" rel="noopener"{% endif %}>{% include icons/mail.svg %}<span>{{ c.label | default: 'Get in touch' }}</span></a>
 {%- endif -%}

@@ -16,7 +16,7 @@ sitemap: false
 
 {% for o in s.services %}- {{ o }}
 {% endfor %}
-For consulting or advisory enquiries, contact him at {{ p.contact.url | remove_first: "mailto:" }}
+For consulting or advisory enquiries, use the contact form: {{ home }}/contact/
 
 ## Key facts
 

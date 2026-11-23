@@ -53,22 +53,24 @@
         <h2 class="track-title" id="track-consult">{{ a.title }}</h2>
         <p class="track-text">{{ a.intro }}</p>
         <p class="track-links">
-          {% include contact-button.html %}
           <a href="{{ '/defence/' | relative_url }}">NATO DIANA, EUDIS and EDF{% include icons/arrow-right.svg %}</a>
         </p>
       </article>
     </div>
 
     <div class="hero-foot">
-      <ul class="profile-links" aria-label="Academic and professional profiles">
-        {% for link in p.links %}
-        <li>
-          <a class="btn" href="{{ link.url }}" target="_blank" rel="me noopener">
-            {% include icons/{{ link.icon }}.svg %}<span>{{ link.label }}</span>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
+      <div class="hero-actions">
+        {% include contact-button.html %}
+        <ul class="profile-links" aria-label="Academic and professional profiles">
+          {% for link in p.links %}
+          <li>
+            <a class="btn" href="{{ link.url }}" target="_blank" rel="me noopener">
+              {% include icons/{{ link.icon }}.svg %}<span>{{ link.label }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
       <p class="hero-meta">{{ p.location }}<span aria-hidden="true"> · </span><a href="{{ '/education/' | relative_url }}">{{ p.degree }}</a></p>
     </div>
   </div>
