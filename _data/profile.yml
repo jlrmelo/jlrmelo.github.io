@@ -32,7 +32,7 @@ photo: /assets/img/profile.webp # transparent cutout; leave empty to show the in
 contact:
   label: Get in touch
   url: /contact/
-  web3forms_key: "" # Web3Forms access key (public by design; see README). Empty = the contact page shows LinkedIn instead of the form.
+  web3forms_key: "e081818a-4d72-492e-ae96-55e1bb993a0d" # Web3Forms access key (public by design; see README). Empty = the contact page shows LinkedIn instead of the form.
 links:
   - label: Google Scholar
     url: https://scholar.google.com/citations?user=iocSrWsAAAAJ
