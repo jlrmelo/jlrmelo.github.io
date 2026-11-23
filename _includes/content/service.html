@@ -1,0 +1,38 @@
+<ol class="timeline">
+  {% for s in site.data.service %}
+  <li class="timeline-item">
+    <div class="timeline-org">
+      <h2>{{ s.role }}</h2>
+      {% if s.org %}<p class="muted">{{ s.org }}</p>{% endif %}
+    </div>
+    <div class="timeline-roles">
+      {% for e in s.entries %}
+      <div class="role">
+        <h3 class="role-heading">{{ e.heading }}{% if e.dates %}<span class="date">{{ e.dates }}</span>{% endif %}</h3>
+        {% if e.org %}<p class="role-org">{{ e.org }}</p>{% endif %}
+        {% if e.text %}<div class="role-text">{{ e.text | markdownify }}</div>{% endif %}
+      </div>
+      {% endfor %}
+      {% unless s.entries %}
+      <div class="role">
+        {% if s.text %}<div class="role-text">{{ s.text | markdownify }}</div>{% endif %}
+        {% if s.list %}
+        {% if s.list_title %}<p class="sublist-title">{{ s.list_title }}</p>{% endif %}
+        <ul class="sublist">
+          {% for i in s.list %}
+          <li>
+            <span class="sublist-date">{{ i.dates }}</span>
+            <span class="sublist-body">
+              {% if i.url %}<a href="{{ i.url }}" target="_blank" rel="noopener">{{ i.label }}</a>{% else %}<span class="sublist-label">{{ i.label }}</span>{% endif %}
+              {% if i.meta %}<span class="sublist-meta">{{ i.meta }}</span>{% endif %}
+            </span>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% endunless %}
+    </div>
+  </li>
+  {% endfor %}
+</ol>

@@ -1,0 +1,40 @@
+name: José Melo
+initials: JM
+role: Maritime Unmanned Systems Expert
+# Headline: plain text with HTML spans. "grad" = blue-to-cyan gradient; "hl-*" = the two highlighted words.
+headline: >-
+  Building the <span class="grad">Physical AI</span> layer for unmanned vessels and underwater vehicles:
+  <span class="hl hl-perception">perception</span> and <span class="hl hl-autonomy">autonomy</span> for the oceans,
+  from the surface down to depths where light and GNSS don't reach.
+focus:
+  - Visual Odometry
+  - Acoustic Navigation
+  - Sensor Fusion
+  - Sonar Processing
+  - Target Detection
+  - Command &amp; Control
+# Key figures under the headline. `source: publications` counts the peer-reviewed papers in the .bib.
+stats:
+  - value: 15+
+    label: years in marine robotics and autonomy
+  - source: publications
+    label: peer-reviewed papers
+  - value: +250M€
+    label: in cumulative budgets of defence R&D proposals evaluated
+bio: >-
+  I lead the architecture and development of navigation, perception and autonomy pipelines
+  for unmanned maritime vehicles, from SLAM and sensor fusion for underwater robots to
+  AI-based sonar target detection and remote command and control of surface vessels.
+location: Porto, Portugal
+degree: PhD, University of Porto
+photo: /assets/img/profile.webp # transparent cutout; leave empty to show the initials
+links:
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=iocSrWsAAAAJ
+    icon: scholar
+  - label: ORCID
+    url: https://orcid.org/0000-0001-5190-9730
+    icon: orcid
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/jose--melo
+    icon: linkedin

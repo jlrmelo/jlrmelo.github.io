@@ -1,0 +1,76 @@
+# Academic service, shown on /service/ (in this order).
+- role: Teaching Assistant
+  entries:
+    - heading: Numerical Analysis
+      org: Digital Health and Biomedical Innovation · Faculty of Medicine, University of Porto
+      dates: 2025
+      text: Helped students with their Numerical Analysis coursework and assignments.
+    - heading: Numerical Analysis; Socialization and Learning
+      org: Electrical and Computer Engineering Department · Faculty of Engineering, University of Porto
+      dates: 2006 – 2013
+      text: >-
+        Teaching assistant for several courses throughout my studies: helping students with coursework and
+        Matlab assignments, grading coursework and exams, and mentoring first-year students.
+- role: Scientific Advisor / Mentor
+  org: CERN, FEUP, École Navale, TU Wien, ISEP
+  text: >-
+    I have supervised students and interns in every organisation I have worked in, including internships,
+    bachelor projects and master's theses, on robotics software frameworks and modules, applied statistical
+    signal processing and computer vision.
+  list_title: Supervised theses
+  list:
+    - dates: 2019
+      label: Quality Assessment for Synthetic Aperture Sonar Images
+      meta: Alan Holdsworth, Aymeric Simon · Master's, École Navale
+    - dates: 2018
+      label: Synthetic Aperture Sonar Performance and Micronavigation
+      meta: Louis Auger, Augustin Chove · Master's, École Navale
+    - dates: 2011 – 2012
+      label: Design e Implementação de uma framework para veículos robóticos
+      meta: Carlos Rocha · Licenciatura em Engenharia Informática, ISEP
+- role: Scientific Reviewer
+  org: Since 2018
+  text: >-
+    Regularly invited to review articles for leading international conferences and journals in my fields.
+    More on my [ORCID profile](https://orcid.org/0000-0001-5190-9730){:target="_blank" rel="noopener"}.
+  list_title: Journals
+  list:
+    - dates: 2020 – present
+      label: Journal of Field Robotics
+      url: https://onlinelibrary.wiley.com/journal/15564967
+      meta: Wiley
+    - dates: 2018 – present
+      label: IEEE Journal of Oceanic Engineering
+      url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=48
+      meta: IEEE
+    - dates: 2018 – present
+      label: Ocean Engineering
+      url: https://www.sciencedirect.com/journal/ocean-engineering
+      meta: Elsevier
+    - dates: 2020
+      label: Signal Processing
+      url: https://www.sciencedirect.com/journal/signal-processing
+      meta: Elsevier
+    - dates: 2019
+      label: IEEE Transactions on Industrial Electronics
+      url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=41
+      meta: IEEE
+    - dates: 2019
+      label: Journal of Navigation
+      url: https://www.cambridge.org/core/journals/journal-of-navigation
+      meta: Cambridge University Press
+    - dates: 2017 – 2018
+      label: Sensors
+      url: https://www.mdpi.com/journal/sensors
+      meta: MDPI
+- role: Conference service
+  list:
+    - dates: 2013
+      label: Session Chair, MTS/IEEE Oceans Conference 2013
+      meta: Autonomous Underwater Vehicles · Bergen, Norway
+    - dates: 2012 – 2013
+      label: Organizing Committee, 2nd PhD Students Conference in Electrical and Computer Engineering
+      meta: FEUP, Porto
+    - dates: 2012
+      label: Session Chair, MTS/IEEE Oceans Conference 2012
+      meta: B7.2 Navigation and Control I · Hampton Roads, Virginia Beach, USA

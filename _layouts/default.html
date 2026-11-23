@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#eef0f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
+  {% seo %}
+  {% if page.url == '/' %}{% include jsonld-person.html %}{% endif %}
+  {% if page.url == '/publications/' %}{% include jsonld-publications.html %}{% endif %}
+  <link rel="preload" href="{{ '/assets/fonts/inter-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <script>
+    // Apply a saved light/dark choice before the page paints, to avoid a flash of the other theme.
+    try {
+      var savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <span class="brand-mark" aria-hidden="true">{{ site.data.profile.initials }}</span>
+        <span class="brand-name">{{ site.data.profile.name }}</span>
+      </a>
+      {% if page.nav != false %}
+      <nav class="nav" aria-label="Sections">
+        {% for item in site.data.navigation %}
+        <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{% if item.short %}<span class="nav-long">{{ item.title }}</span><span class="nav-short">{{ item.short }}</span>{% else %}{{ item.title }}{% endif %}</a>
+        {% endfor %}
+      </nav>
+      {% endif %}
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme" hidden>
+        {% include icons/moon.svg %}{% include icons/sun.svg %}
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© {{ site.time | date: '%Y' }} {{ site.data.profile.name }}</p>
+      <ul class="footer-links">
+        {% for link in site.data.profile.links %}
+        <li><a href="{{ link.url }}" target="_blank" rel="me noopener">{{ link.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </footer>
+  <script>
+    // Light/dark toggle. Without a saved choice the site follows the system setting.
+    (function () {
+      var root = document.documentElement;
+      var button = document.querySelector('.theme-toggle');
+      var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+      if (!button) return;
+      function current() { return root.dataset.theme || (systemDark.matches ? 'dark' : 'light'); }
+      function updateLabel() {
+        var label = current() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+        button.setAttribute('aria-label', label);
+        button.title = label;
+      }
+      button.hidden = false;
+      updateLabel();
+      button.addEventListener('click', function () {
+        var next = current() === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        updateLabel();
+      });
+      if (systemDark.addEventListener) systemDark.addEventListener('change', updateLabel);
+    })();
+  </script>
+</body>
+</html>

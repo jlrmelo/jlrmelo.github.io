@@ -1,0 +1,12 @@
+# Jekyll build output and caches
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Gems installed by Bundler (scripts/* install into vendor/bundle)
+vendor/
+.bundle/
+
+# Unpublished originals (full CV, original photo)
+_private/

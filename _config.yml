@@ -1,0 +1,38 @@
+title: José Melo
+tagline: Maritime Unmanned Systems Expert
+description: >-
+  Maritime unmanned systems expert building Physical AI: perception and autonomy for surface and underwater vehicles. Available for consulting and R&D advisory.
+author: José Melo
+lang: en
+url: "https://jlrmelo.github.io"
+baseurl: "" # leave empty; the GitHub Actions build sets it for project sites
+
+# Social preview card (Open Graph / Twitter / LinkedIn), applied to every page
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og-card.png
+
+plugins:
+  - jekyll-scholar
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+scholar:
+  source: ./_bibliography
+  bibliography: publications.bib
+  bibliography_template: bib
+  sort_by: year,month
+  order: descending,descending
+  group_by: none
+
+exclude:
+  - compose.yaml
+  - scripts/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .bundle/
+  - _private/

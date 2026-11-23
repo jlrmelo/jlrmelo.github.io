@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Update all gems, or only the ones named. Commit the new Gemfile.lock afterwards.
+set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/_common.sh"
+
+docker compose run --rm jekyll bundle update "$@"

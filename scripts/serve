@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Serve the site with live reload at http://localhost:4000 (Ctrl-C to stop).
+# Extra arguments are passed to `docker compose up`.
+set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/_common.sh"
+
+docker compose up "$@"

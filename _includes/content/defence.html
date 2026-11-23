@@ -1,0 +1,20 @@
+{% assign a = site.data.advisory %}
+<div class="card-grid">
+  {% for e in a.engagements %}
+  <article class="card">
+    <div class="card-top">
+      <h2 class="card-title">{{ e.name }}</h2>
+      <span class="date">{{ e.dates }}</span>
+    </div>
+    <p class="card-role">{{ e.role }}</p>
+    <ul class="bullets">
+      {% for point in e.points %}<li>{{ point }}</li>{% endfor %}
+    </ul>
+    {% if e.links.size > 0 %}
+    <p class="card-links">
+      {% for l in e.links %}<a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}{% include icons/arrow-up-right.svg %}</a>{% endfor %}
+    </p>
+    {% endif %}
+  </article>
+  {% endfor %}
+</div>

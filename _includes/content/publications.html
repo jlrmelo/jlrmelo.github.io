@@ -1,0 +1,16 @@
+{% capture articles %}{% bibliography_count --query @article %}{% endcapture %}
+{% capture papers %}{% bibliography_count --query @inproceedings %}{% endcapture %}
+{% capture reports %}{% bibliography_count --query @techreport %}{% endcapture %}
+<div class="pub-group">
+  <h2 class="pub-group-title">Journal articles <span class="count">{{ articles | strip }}</span></h2>
+  {% bibliography --query @article %}
+</div>
+<div class="pub-group">
+  <h2 class="pub-group-title">Conference papers <span class="count">{{ papers | strip }}</span></h2>
+  {% bibliography --query @inproceedings %}
+</div>
+<details class="pub-group pub-reports">
+  <summary class="pub-group-title">Technical reports <span class="count">{{ reports | strip }}</span><span class="toggle" aria-hidden="true"></span></summary>
+  <p class="pub-note">Internal reports from NATO STO CMRE and FEUP. Most have restricted distribution, so only titles are listed.</p>
+  {% bibliography --query @techreport %}
+</details>

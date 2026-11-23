@@ -1,0 +1,74 @@
+{% assign p = site.data.profile %}
+{% assign a = site.data.advisory %}
+{% capture articles %}{% bibliography_count --query @article %}{% endcapture %}
+{% capture papers %}{% bibliography_count --query @inproceedings %}{% endcapture %}
+{% assign peer_reviewed = articles | strip | plus: 0 | plus: papers %}
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 class="hero-title">{{ p.name }}</h1>
+        <p class="hero-role">{{ p.role }}</p>
+        <p class="hero-statement">{{ p.headline }}</p>
+        <ul class="focus-tags" aria-label="Focus areas">
+          {% for f in p.focus %}<li>{{ f }}</li>{% endfor %}
+        </ul>
+      </div>
+      <div class="hero-portrait">
+        <svg class="sonar" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+          <circle cx="200" cy="200" r="70"/><circle cx="200" cy="200" r="110"/>
+          <circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="190"/>
+          <circle class="ping" cx="318" cy="118" r="4"/><circle class="ping" cx="66" cy="262" r="3"/>
+          <circle class="ping" cx="268" cy="352" r="3"/>
+        </svg>
+        {% if p.photo %}
+        <img src="{{ p.photo | relative_url }}" alt="Portrait of {{ p.name }}" width="360" height="450">
+        {% else %}
+        <div class="monogram" aria-hidden="true">{{ p.initials }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <dl class="stats">
+      {% for s in p.stats %}
+      <div class="stat">
+        <dt>{{ s.label }}</dt>
+        <dd>{% if s.source == 'publications' %}{{ peer_reviewed }}{% else %}{{ s.value }}{% endif %}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+
+    <div class="tracks">
+      <article class="track" aria-labelledby="track-develop">
+        <p class="kicker">What I develop</p>
+        <h2 class="track-title" id="track-develop">Research &amp; Engineering</h2>
+        <p class="track-text">{{ p.bio }}</p>
+        <p class="track-links">
+          <a href="{{ '/experience/' | relative_url }}">Experience{% include icons/arrow-right.svg %}</a>
+          <a href="{{ '/publications/' | relative_url }}">Publications{% include icons/arrow-right.svg %}</a>
+        </p>
+      </article>
+      <article class="track" aria-labelledby="track-consult">
+        <p class="kicker">Consultancy</p>
+        <h2 class="track-title" id="track-consult">{{ a.title }}</h2>
+        <p class="track-text">{{ a.intro }}</p>
+        <p class="track-links">
+          <a href="{{ '/defence/' | relative_url }}">NATO DIANA, EUDIS and EDF{% include icons/arrow-right.svg %}</a>
+        </p>
+      </article>
+    </div>
+
+    <div class="hero-foot">
+      <ul class="profile-links" aria-label="Academic and professional profiles">
+        {% for link in p.links %}
+        <li>
+          <a class="btn" href="{{ link.url }}" target="_blank" rel="me noopener">
+            {% include icons/{{ link.icon }}.svg %}<span>{{ link.label }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      <p class="hero-meta">{{ p.location }}<span aria-hidden="true"> · </span><a href="{{ '/education/' | relative_url }}">{{ p.degree }}</a></p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+- org: Ocean Infinity
+  place: Porto, Portugal
+  url: https://oceaninfinity.com/
+  roles:
+    - title: Senior C++ Software Engineer
+      dates: 2025 – present
+      summary: Lead developer of a command-and-control remote navigation system for uncrewed surface vessels. Designed its containerised C++ backend architecture, including databases, monitoring and observability, and the gRPC interfaces to the Unreal Engine client and data ingestion.
+    - title: Senior Artificial Intelligence Researcher
+      dates: 2022 – 2025
+      summary: Led a team of four engineers building a SLAM-based autonomy stack for underwater vehicles, owning the system architecture and technical direction across visual odometry, sensor fusion and online mapping. Led AI-based target detection in sidescan sonar, including its ETL data pipeline, and the liaison with academic and research partners.
+- org: NATO STO Centre for Maritime Research and Experimentation
+  place: La Spezia, Italy
+  url: https://www.cmre.nato.int
+  roles:
+    - title: Scientist
+      dates: 2018 – 2021
+      summary: Developed statistical signal processing and machine learning algorithms for a multi-phase, system-of-systems approach to cooperative autonomy in naval mine countermeasures, working with technical and operational stakeholders.
+- org: INESC TEC — Centre for Robotics and Intelligent Systems
+  place: Porto, Portugal
+  url: https://www.inesctec.pt/en
+  roles:
+    - title: Researcher
+      dates: 2011 – 2017
+      summary: Coordinated research proposals that secured €1M in external funding. Developed state estimation, tracking and sensor fusion algorithms, and on-board command-and-control software, for autonomous marine vehicles.
+- org: University of Porto Technology Transfer Office (UPIN)
+  place: Porto, Portugal
+  url: https://upin.up.pt/en
+  roles:
+    - title: Consultant
+      dates: 2015 – 2016
+      summary: Managed an intellectual property portfolio, with patent analytics and patentability analysis.
+- org: National Institute of Informatics
+  place: Tokyo, Japan
+  url: https://www.nii.ac.jp/en/
+  roles:
+    - title: Invited Researcher, Honiden Lab
+      dates: 2015
+      summary: Invited to the Honiden Lab to work on self-adaptive robotic systems, developing sensor fusion, control and navigation for a quadcopter.
+- org: CERN
+  place: Geneva, Switzerland
+  url: https://home.cern/
+  roles:
+    - title: Software Engineer
+      dates: 2009 – 2010
+      summary: Developed and maintained control and monitoring applications for the CMS Level-1 Trigger, as on-call software expert, and supervised MSc-level student projects.
+- org: EFACEC Engenharia
+  place: Maia, Portugal
+  url: https://www.efacec.pt
+  roles:
+    - title: Automation Engineer
+      dates: 2008
+      summary: Developed and commissioned client-tailored SCADA solutions on site.

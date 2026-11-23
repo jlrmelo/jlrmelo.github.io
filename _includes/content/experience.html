@@ -1,0 +1,18 @@
+<ol class="timeline">
+  {% for job in site.data.experience %}
+  <li class="timeline-item">
+    <div class="timeline-org">
+      <h2><a href="{{ job.url }}" target="_blank" rel="noopener">{{ job.org }}</a></h2>
+      <p class="muted">{{ job.place }}</p>
+    </div>
+    <div class="timeline-roles">
+      {% for r in job.roles %}
+      <div class="role">
+        <h3>{{ r.title }}<span class="date">{{ r.dates }}</span></h3>
+        <p>{{ r.summary }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </li>
+  {% endfor %}
+</ol>

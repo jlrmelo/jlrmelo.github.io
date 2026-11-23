@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Build the site, then check internal links and HTML (the same gate CI runs).
+set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/_common.sh"
+
+scripts/build
+docker compose run --rm jekyll bundle exec htmlproofer ./_site --disable-external

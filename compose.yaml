@@ -1,0 +1,16 @@
+services:
+  jekyll:
+    image: ruby:3.3
+    working_dir: /srv/jekyll
+    # Run as the host user so _site/ and caches aren't owned by root.
+    # scripts/_common.sh exports HOST_UID/HOST_GID.
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    environment:
+      HOME: /tmp
+      BUNDLE_PATH: /srv/jekyll/vendor/bundle
+    volumes:
+      - .:/srv/jekyll
+    ports:
+      - "4000:4000"   # site
+      - "35729:35729" # livereload
+    command: sh -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --livereload --drafts"

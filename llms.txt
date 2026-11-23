@@ -1,0 +1,38 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+{%- assign p = site.data.profile -%}
+{%- assign s = site.data.seo -%}
+{%- assign home = site.url | append: site.baseurl -%}
+# {{ p.name }}
+
+> {{ s.summary }}
+
+{{ p.name }} ({{ s.alternate_name }}) is a {{ p.role }} based in {{ p.location }}. He works at {{ s.employer.name }} and holds a PhD in Electrical and Computer Engineering from the University of Porto.
+
+## Services
+
+{% for o in s.services %}- {{ o }}
+{% endfor %}
+For consulting or advisory enquiries, contact him on LinkedIn: {{ p.links | where: "icon", "linkedin" | map: "url" | first }}
+
+## Key facts
+
+{% for st in p.stats %}- {% if st.source == 'publications' %}{{ site.data.scholarly.size }}{% else %}{{ st.value }}{% endif %} {{ st.label }}
+{% endfor %}{% for e in site.data.advisory.engagements %}- {{ e.name }} ({{ e.dates }}): {{ e.role }}
+{% endfor %}
+## Areas of expertise
+
+{{ s.knows_about | join: ", " }}
+
+## Pages
+
+- [Home]({{ home }}/): {{ site.description | strip }}
+{% for item in site.data.navigation %}{% assign pg = site.pages | where: "url", item.url | first %}- [{{ item.title }}]({{ home }}{{ item.url }}): {{ pg.description }}
+{% endfor %}
+## Profiles
+
+{% for l in p.links %}- {{ l.label }}: {{ l.url }}
+{% endfor %}

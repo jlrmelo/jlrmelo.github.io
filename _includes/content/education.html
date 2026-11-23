@@ -1,0 +1,32 @@
+<ol class="timeline">
+  {% for e in site.data.education %}
+  <li class="timeline-item">
+    <div class="timeline-org">
+      <h2>{{ e.school }}</h2>
+    </div>
+    <div class="timeline-roles">
+      <div class="role">
+        <h3>{{ e.degree }}<span class="date">{{ e.dates }}</span></h3>
+        <p>{{ e.detail }}</p>
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+</ol>
+
+{% assign honours = site.data.honours %}
+{% if honours and honours.size > 0 %}
+<h2 class="subsection-title" id="honours">Awards &amp; honours</h2>
+<ol class="bibliography">
+  {% for h in honours %}
+  <li><article class="pub">
+    <span class="pub-year">{{ h.year }}</span>
+    <div class="pub-body">
+      <h3 class="pub-title">{{ h.title }}</h3>
+      <p class="pub-venue">{{ h.issuer }}{% if h.place %} · {{ h.place }}{% endif %}</p>
+      {% if h.detail %}<p class="pub-authors">{{ h.detail }}</p>{% endif %}
+    </div>
+  </article></li>
+  {% endfor %}
+</ol>
+{% endif %}

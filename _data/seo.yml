@@ -1,0 +1,40 @@
+# Identity data for search engines and LLMs (JSON-LD on the landing page, and /llms.txt).
+# `summary` is the one-sentence answer to "who is José Melo, and why hire him?".
+summary: >-
+  José Melo is a maritime unmanned systems expert with 15+ years building perception, navigation
+  and autonomy for unmanned surface and underwater vehicles, and an appointed independent expert
+  for the European Defence Fund, NATO DIANA and EUDIS, available for technical consulting,
+  R&D evaluation and defence innovation advisory.
+alternate_name: José Luís Melo
+employer:
+  name: Ocean Infinity
+  url: https://oceaninfinity.com/
+alumni:
+  - name: University of Porto
+    url: https://www.up.pt/
+  - name: University of Southern Denmark
+    url: https://www.sdu.dk/
+location:
+  locality: Porto
+  country: PT
+orcid: 0000-0001-5190-9730
+services:
+  - Technical consulting on perception, navigation and autonomy for unmanned maritime systems
+  - Independent evaluation and due diligence of defence and dual-use R&D proposals
+  - Mentoring and advisory for defence innovation start-ups and scale-ups
+knows_about:
+  - Physical AI
+  - Maritime autonomy
+  - Unmanned surface vehicles
+  - Autonomous underwater vehicles
+  - SLAM
+  - Acoustic navigation
+  - Terrain-based navigation
+  - Sensor fusion
+  - Multi-target tracking
+  - Sidescan sonar
+  - Automatic target recognition
+  - Mine countermeasures
+  - Command and control systems
+  - Defence innovation
+  - R&D proposal evaluation
