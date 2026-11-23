@@ -19,7 +19,7 @@ stats:
     label: years in marine robotics and autonomy
   - source: publications
     label: peer-reviewed papers
-  - value: +250M€
+  - value: €250M+
     label: in cumulative budgets of defence R&D proposals evaluated
 bio: >-
   I lead the architecture and development of navigation, perception and autonomy pipelines
@@ -28,6 +28,10 @@ bio: >-
 location: Porto, Portugal
 degree: PhD, University of Porto
 photo: /assets/img/profile.webp # transparent cutout; leave empty to show the initials
+# "Get in touch" button in the landing-page Consultancy panel and on /defence/. A mailto: address works too.
+contact:
+  label: Get in touch
+  url: https://www.linkedin.com/in/jose--melo
 links:
   - label: Google Scholar
     url: https://scholar.google.com/citations?user=iocSrWsAAAAJ

@@ -3,6 +3,9 @@ name: Deploy site to GitHub Pages
 on:
   push:
     branches: [main]
+  # Monthly rebuild, so the footer year rolls over on 1 January without a push.
+  schedule:
+    - cron: "0 5 1 * *"
   workflow_dispatch:
 
 permissions:

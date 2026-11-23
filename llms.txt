@@ -16,7 +16,7 @@ sitemap: false
 
 {% for o in s.services %}- {{ o }}
 {% endfor %}
-For consulting or advisory enquiries, contact him on LinkedIn: {{ p.links | where: "icon", "linkedin" | map: "url" | first }}
+For consulting or advisory enquiries, contact him at {{ p.contact.url | remove_first: "mailto:" }}
 
 ## Key facts
 

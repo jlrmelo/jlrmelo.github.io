@@ -53,6 +53,7 @@
         <h2 class="track-title" id="track-consult">{{ a.title }}</h2>
         <p class="track-text">{{ a.intro }}</p>
         <p class="track-links">
+          {% include contact-button.html %}
           <a href="{{ '/defence/' | relative_url }}">NATO DIANA, EUDIS and EDF{% include icons/arrow-right.svg %}</a>
         </p>
       </article>

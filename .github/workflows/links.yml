@@ -1,0 +1,32 @@
+name: Check external links
+
+# Separate from the deploy so a dead third-party link never blocks publishing.
+# A failed run shows up in the Actions tab and GitHub emails you about it.
+on:
+  schedule:
+    - cron: "0 6 1 * *" # monthly, an hour after the scheduled rebuild
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      # 403/429/999 are sites refusing bots (LinkedIn answers 999; NATO, Wiley, Elsevier, MDPI and doi.org 403),
+      # not broken links. Real breakage shows up as 404/410 or a dead domain.
+      - name: Check all links, including external ones
+        run: bundle exec htmlproofer ./_site --ignore-status-codes 403,429,999

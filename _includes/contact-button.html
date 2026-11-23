@@ -1,0 +1,4 @@
+{%- assign c = site.data.profile.contact -%}
+{%- if c.url -%}
+<a class="btn btn-primary" href="{{ c.url }}"{% if c.url contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ c.label | default: 'Get in touch' }}</a>
+{%- endif -%}

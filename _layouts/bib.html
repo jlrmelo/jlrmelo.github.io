@@ -6,7 +6,10 @@
     <h3 class="pub-title">{{ entry.title }}</h3>
     <p class="pub-authors">
       {%- for a in entry.author_array -%}
-        {%- assign full = a.first | append: ' ' | append: a.last -%}
+        {%- comment -%} Keep particles: "Marc Magrans de Abril" is first "Marc Magrans", prefix "de", last "Abril". {%- endcomment -%}
+        {%- assign full = a.first | append: ' ' -%}
+        {%- unless a.prefix == blank -%}{%- assign full = full | append: a.prefix | append: ' ' -%}{%- endunless -%}
+        {%- assign full = full | append: a.last -%}
         {%- if a.last == 'Melo' and a.first contains 'Jos' -%}<strong>{{ full }}</strong>{%- else -%}{{ full }}{%- endif -%}
         {%- unless forloop.last -%}, {% endunless -%}
       {%- endfor -%}

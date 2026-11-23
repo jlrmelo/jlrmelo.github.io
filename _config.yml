@@ -12,7 +12,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/img/og-card.png
+      image: /assets/img/og-card.jpg
 
 plugins:
   - jekyll-scholar
