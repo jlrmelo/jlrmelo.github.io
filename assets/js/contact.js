@@ -1,31 +1,13 @@
-// Contact form: loads hCaptcha, keeps its theme in step with the site, and posts the form to Web3Forms as JSON.
+// Contact form: posts the form to Web3Forms as JSON. Web3Forms' script renders the hCaptcha widget and
+// adds its token to the form as the h-captcha-response field; this file only reads that token.
 (function () {
   var form = document.getElementById('contact-form');
   if (!form) return;
 
-  var root = document.documentElement;
-  var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
-  var captchaEl = document.getElementById('contact-captcha');
   var submit = document.getElementById('contact-submit');
   var status = document.getElementById('contact-status');
   var success = document.getElementById('contact-success');
-  var widgetId = null;
   var sending = false;
-
-  function currentTheme() {
-    return root.dataset.theme || (systemDark.matches ? 'dark' : 'light');
-  }
-
-  function renderCaptcha() {
-    widgetId = window.hcaptcha.render(captchaEl, { sitekey: captchaEl.dataset.sitekey, theme: currentTheme() });
-  }
-
-  // Re-draws an unsolved captcha so it matches the theme; a solved one is left alone.
-  function refreshCaptcha() {
-    if (widgetId === null || !window.hcaptcha || window.hcaptcha.getResponse(widgetId)) return;
-    window.hcaptcha.remove(widgetId);
-    renderCaptcha();
-  }
 
   function setStatus(message, isError) {
     status.textContent = '';
@@ -52,7 +34,7 @@
     sending = false;
     submit.disabled = false;
     submit.textContent = 'Send message';
-    try { window.hcaptcha.reset(widgetId); } catch (e) {}
+    try { if (window.hcaptcha) window.hcaptcha.reset(); } catch (e) {}
   }
 
   function showSuccess() {
@@ -68,13 +50,13 @@
     if (sending) return;
     setStatus('', false);
 
-    if (!window.hcaptcha || widgetId === null) {
+    var field = form.querySelector('textarea[name=h-captcha-response]');
+    if (!field) {
       showLinkedInError("The captcha couldn't load. Please refresh the page, or contact me on ");
       return;
     }
 
-    var token = window.hcaptcha.getResponse(widgetId);
-    if (!token) {
+    if (!field.value) {
       setStatus('Please complete the captcha check before sending.', true);
       return;
     }
@@ -84,7 +66,7 @@
     submit.textContent = 'Sending…';
 
     var payload = Object.fromEntries(new FormData(form));
-    payload['h-captcha-response'] = token;
+    payload['h-captcha-response'] = field.value;
 
     fetch(form.action, {
       method: 'POST',
@@ -99,13 +81,4 @@
       })
       .catch(showFailure);
   });
-
-  window.onContactCaptchaLoad = renderCaptcha;
-  var script = document.createElement('script');
-  script.src = 'https://js.hcaptcha.com/1/api.js?render=explicit&onload=onContactCaptchaLoad';
-  script.async = true;
-  document.head.appendChild(script);
-
-  new MutationObserver(refreshCaptcha).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
-  if (systemDark.addEventListener) systemDark.addEventListener('change', refreshCaptcha);
 })();

@@ -36,7 +36,8 @@ intro: "For any enquiries, send me a message and I'll get back to you."
     </div>
 
     <div class="form-actions">
-      <div id="contact-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
+      <div id="contact-captcha" class="h-captcha" data-captcha="true"></div>
+      <script>document.getElementById('contact-captcha').setAttribute('data-theme', document.documentElement.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));</script>
       <button id="contact-submit" class="btn btn-primary" type="submit">Send message</button>
     </div>
     <p id="contact-status" role="status" aria-live="polite"></p>
@@ -52,6 +53,7 @@ intro: "For any enquiries, send me a message and I'll get back to you."
   <noscript><p class="contact-note">This form needs JavaScript. You can also contact me on <a href="{{ linkedin }}" target="_blank" rel="noopener">LinkedIn</a>.</p></noscript>
 </div>
 <script src="{{ '/assets/js/contact.js' | relative_url }}" defer></script>
+<script src="https://web3forms.com/client/script.js" async defer></script>
 {% else %}
 <p class="section-intro">The contact form isn't available right now. You can reach me on <a href="{{ linkedin }}" target="_blank" rel="noopener">LinkedIn</a>.</p>
 {% endif %}
